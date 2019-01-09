@@ -1,10 +1,9 @@
-<a name=""></a>
-# (unreleased)
+<a name="unreleased"></a>
+## [Unreleased]
 
+### Feat
+- first version
 
-### Features
-
-* first version ([5d2a3e3](https://github.com/metwork-framework/circus_autorestart_plugin/commit/5d2a3e3))
-
-
+<a name="initial"></a>
+## [initial] - 2019-01-03
 
