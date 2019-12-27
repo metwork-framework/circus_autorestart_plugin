@@ -52,11 +52,13 @@ class MonitoredWatcher(object):
     name = None
     working_dir = None
     inotify_handle = None
+    autorestart_kill_signal = None
     wds = None
 
-    def __init__(self, name, working_dir):
+    def __init__(self, name, working_dir, autorestart_kill_signal):
         self.name = name
         self.working_dir = working_dir
+        self.autorestart_kill_signal = autorestart_kill_signal
 
     def start_monitoring(self):
         self.inotify_handle = INotify()
@@ -161,8 +163,11 @@ class CircusAutorestartPlugin(CircusPlugin):
             need_restart = monitored_watcher.need_restart()
             if need_restart:
                 if self.is_watcher_active(monitored_watcher.name):
-                    LOGGER.info("killing watcher %s" % monitored_watcher.name)
-                    self.call("kill", name=monitored_watcher.name, signum=9)
+                    LOGGER.info("killing watcher %s with signal: %i" %
+                                (monitored_watcher.name,
+                                 monitored_watcher.autorestart_kill_signal))
+                    self.call("kill", name=monitored_watcher.name,
+                              signum=monitored_watcher.autorestart_kill_signal)
 
     def fill_watchers(self, debug_output=False):
         msg = self.call("list")
@@ -186,6 +191,15 @@ class CircusAutorestartPlugin(CircusPlugin):
                                          "excludes file" %
                                          (watcher, working_dir))
                         continue
-                    monitored_watcher = MonitoredWatcher(watcher, working_dir)
+                    autorestart_kill_signal = 9
+                    try:
+                        autorestart_kill_signal = \
+                            int(msg['options'].get("autorestart_kill_signal",
+                                                   "9"))
+                    except Exception:
+                        pass
+                    monitored_watcher = \
+                        MonitoredWatcher(watcher, working_dir,
+                                         autorestart_kill_signal)
                     self.monitored_watchers[watcher] = monitored_watcher
                     monitored_watcher.start_monitoring()
