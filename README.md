@@ -44,15 +44,11 @@ match with `.autorestart_excludes` (if it exists). The `working_dir` itself is a
 When a FS event is received, if the corresponding file matches `.autorestart_includes` (if it exists) and not matches `.autorestart_excludes` (if it exists), the watcher is killed (and
 `circus` should restart it).
 
-Note:
-
-- you can change the signal used to kill the watcher (`SIGKILL` by default) in case of detected change by using the special `autorestart_kill_signal` configuration key at `watcher` level.
-
 ## Limitations
 
 At this moment:
 
-- we just kill the watcher (`SIGKILL` or custom configured signal) and we hope than `circus` will relaunch it (be careful if your `circus` is not configured to do that).
+- we just kill the watcher (`SIGKILL`) and we hope than `circus` will relaunch it (be careful if your `circus` is not configured to do that).
 - if a new directory is created, it's not automatically watched itself.
 - it seems that the `gitignore` parser used [is not perfect](https://github.com/mherrmann/gitignore_parser/issues/1).
 
