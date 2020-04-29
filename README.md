@@ -6,6 +6,7 @@
 
 
 
+
 [![Drone CI](http://metwork-framework.org:8000/api/badges/metwork-framework/circus_autorestart_plugin/status.svg)](http://metwork-framework.org:8000/metwork-framework/circus_autorestart_plugin)
 [![Maintenance](https://github.com/metwork-framework/resources/blob/master/badges/maintained.svg)]()
 
