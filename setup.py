@@ -9,6 +9,7 @@ setup(
     name="circus_autorestart_plugin",
     version="0.0.1",
     license="BSD",
+    url="https://github.com/metwork-framework/circus_autorestart_plugin",
     packages=find_packages(),
     install_requires=install_requires
 )
