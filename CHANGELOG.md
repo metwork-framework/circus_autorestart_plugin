@@ -1,14 +1,18 @@
 # CHANGELOG
 
-
 ## [Unreleased]
 
 ### New Features
-- kill signal is now configurable
+
 - first version
+- kill signal is now configurable
 
+## changelog_start (2019-01-03)
 
+- No interesting change
 
+## initial (2019-01-03)
 
+- No interesting change
 
 
