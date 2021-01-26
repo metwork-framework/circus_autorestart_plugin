@@ -13,9 +13,6 @@
 
 ## initial (2019-01-03)
 
-### New Features
-
-- first version
-- kill signal is now configurable
+- No interesting change
 
 
