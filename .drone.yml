@@ -8,7 +8,9 @@ pipeline:
 
 matrix:
   PYTHON_VERSION:
-    - 3.5-jessie
-    - 3.6-jessie
+    - 3.5-buster
+    - 3.6-buster
+    - 3.7-buster
+    - 3.8-buster
 
 branches: [ master, pci_*, ci_* ]
