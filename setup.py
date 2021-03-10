@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open('requirements.txt') as reqs:
     install_requires = [
         line for line in reqs.read().split('\n')
-        if (line and not line.startswith('--')) and (";" not in line)]
+        if (line and not line.startswith('--'))]
 
 setup(
     name="circus_autorestart_plugin",

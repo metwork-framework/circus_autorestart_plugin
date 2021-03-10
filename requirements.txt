@@ -1,3 +1,4 @@
+pyzmq<21.0.0; python_version < '3.6'
 circus
 inotify_simple
 gitignore_parser
