@@ -4,9 +4,7 @@
 
 **Status (master branch)**
 
-
-
-[![Drone CI](http://metwork-framework.org:8000/api/badges/metwork-framework/circus_autorestart_plugin/status.svg)](http://metwork-framework.org:8000/metwork-framework/circus_autorestart_plugin)
+[![GitHub CI](https://github.com/metwork-framework/circus_autorestart_plugin/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/metwork-framework/circus_autorestart_plugin/actions?query=workflow%3ACI+branch%3Amaster)
 [![Maintenance](https://raw.githubusercontent.com/metwork-framework/resources/master/badges/maintained.svg)](https://github.com/metwork-framework/resources/blob/master/badges/maintained.svg)
 
 
