@@ -3,3 +3,4 @@ circus
 inotify_simple
 gitignore_parser
 cached-property
+setuptools
