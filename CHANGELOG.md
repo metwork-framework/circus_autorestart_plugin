@@ -6,6 +6,7 @@
 
 - first version
 - kill signal is now configurable
+- add new python releases
 
 ### Bug Fixes
 
