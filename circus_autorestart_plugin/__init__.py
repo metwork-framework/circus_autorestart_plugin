@@ -1,5 +1,5 @@
 from circus.plugins import CircusPlugin
-from zmq.eventloop import ioloop
+from circus.util import AsyncPeriodicCallback
 import os
 import logging
 from inotify_simple import flags, INotify
@@ -140,10 +140,9 @@ class CircusAutorestartPlugin(CircusPlugin):
         """
         super(CircusAutorestartPlugin, self).initialize()
         self.fill_watchers(debug_output=True)
-        self.periodic = ioloop.PeriodicCallback(self.ping, 1000, self.loop)
+        self.periodic = AsyncPeriodicCallback(self.ping, 1000)
         self.periodic.start()
-        self.periodic10 = ioloop.PeriodicCallback(self.fill_watchers, 10000,
-                                                  self.loop)
+        self.periodic10 = AsyncPeriodicCallback(self.fill_watchers, 10000)
         self.periodic10.start()
 
     def handle_recv(self, data):
