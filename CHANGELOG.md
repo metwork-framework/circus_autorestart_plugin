@@ -7,6 +7,7 @@
 - first version
 - kill signal is now configurable
 - add new python releases
+- adapt to last circus release with tornado 6 and MF patch
 
 ### Bug Fixes
 
